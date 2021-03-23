@@ -225,11 +225,11 @@ class Application:
                     if i == 0:
                         file = open(filename, 'rb')
                     else:
-                        file = open(filename, 'wb')
-                        if file_descriptors[0].name == file.name:
-                            file.close()
+                        if file_descriptors[0].name == filename:
                             self.__show_error_message('Это очень плохая идея.')
                             continue
+                        else:
+                            file = open(filename, 'wb')
                     file_descriptors.append(file)
                     bad_file = False
                 except (FileExistsError, FileNotFoundError, NotADirectoryError):
@@ -254,11 +254,11 @@ class Application:
                     if i == 0:
                         file = open(filename, 'rb')
                     else:
-                        file = open(filename, 'wb')
-                        if file_descriptors[0].name == file.name:
-                            file.close()
+                        if file_descriptors[0].name == filename:
                             self.__show_error_message('Это очень плохая идея.')
                             continue
+                        else:
+                            file = open(filename, 'wb')
                     file_descriptors.append(file)
                     bad_file = False
                 except (FileExistsError, FileNotFoundError, NotADirectoryError):
